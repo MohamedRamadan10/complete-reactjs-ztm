@@ -2,38 +2,57 @@ import { Component } from "react";
 import "./App.scss";
 
 class App extends Component {
-  constructor() {
-    super();
+	constructor() {
+		super();
 
-    this.state = {
-      name: {
-        firstName: "Mohamed",
-        lastName: "Ramadan",
-      },
-    };
-  }
+		this.state = {
+			monsters: [],
+			searchField: "",
+		};
+	}
 
-  render() {
-    return (
-      <div className="App">
-        <div className="container">
-          <header>
-            Hi {this.state.name.firstName} {this.state.name.lastName}
-            <button
-              onClick={() => {
-                console.log(this.state);
-                this.setState({
-                  name: { firstName: "Ahmed", lastName: "Mohamed" },
-                });
-              }}
-            >
-              Change Name
-            </button>
-          </header>
-        </div>
-      </div>
-    );
-  }
+	componentDidMount() {
+		const fetchPlaceholderUsers = async () => {
+			try {
+				const res = await fetch("https://jsonplaceholder.typicode.com/users");
+				const monsters = await res.json();
+				this.setState(() => {
+					return { monsters };
+				});
+			} catch (err) {
+				console.log(err.message);
+			}
+		};
+		fetchPlaceholderUsers();
+	}
+
+	render() {
+		const filteredMonsters = this.state.monsters.filter((monster) => {
+			return monster.name.toLowerCase().includes(this.state.searchField);
+		});
+
+		return (
+			<div className="App">
+				<div className="container">
+					<input
+						type="search"
+						placeholder="Search monsters..."
+						onChange={(e) => {
+							const searchField = e.target.value.toLowerCase();
+							this.setState(() => {
+								return { searchField };
+							});
+						}}
+					/>
+					<ul>
+						{filteredMonsters.map((monster) => (
+							<li key={monster.id}>{monster.name}</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		);
+	}
 }
 
 export default App;
