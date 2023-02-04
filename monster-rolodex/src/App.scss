@@ -1,4 +1,30 @@
 .App {
 	min-height: 100vh;
 	padding: 100px 0;
+	background: #c94b4b;
+	background: linear-gradient(to right, #4b134f, #c94b4b);
+
+	.layout {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 15px;
+		margin-top: 50px;
+		.card {
+			flex: 0 0 calc((100% / 4) - 15px);
+			max-width: calc((100% / 4) - 15px);
+			@media (max-width: 991px) {
+				flex: 0 0 calc((100% / 3) - 15px);
+				max-width: calc((100% / 3) - 15px);
+			}
+			@media (max-width: 767px) {
+				flex: 0 0 calc((100% / 2) - 15px);
+				max-width: calc((100% / 2) - 15px);
+			}
+			@media (max-width: 565px) {
+				flex: 0 0 100%;
+				max-width: 100%;
+			}
+		}
+	}
 }

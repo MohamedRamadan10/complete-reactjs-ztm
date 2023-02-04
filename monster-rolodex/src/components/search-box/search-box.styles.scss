@@ -1,0 +1,21 @@
+.search {
+	max-width: 250px;
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+	padding: 15px 10px;
+	background: transparent;
+	border: 1px solid #fff;
+	border-radius: 50px;
+	color: #4b134f;
+	transition: 0.3s all ease-in-out;
+	&::placeholder {
+		color: #ccc;
+		font-family: "Bigelow Rules", cursive;
+	}
+	&:focus {
+		color: #4b134f;
+		background: #fff;
+		outline: 1px solid #c94b4b;
+	}
+}

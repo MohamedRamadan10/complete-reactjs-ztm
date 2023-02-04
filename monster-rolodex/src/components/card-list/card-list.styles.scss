@@ -1,0 +1,40 @@
+.card {
+	background: #fff;
+	border: 1px solid #ccc;
+	padding: 15px;
+	border-radius: 15px;
+	text-align: center;
+	transform-origin: center;
+	transition: 0.3s all ease-in-out;
+	.img {
+		width: 100px;
+		height: 100px;
+		margin: 0 auto;
+		overflow: hidden;
+		border-radius: 50%;
+		border: 1px solid #ccc;
+		box-shadow: 0 3px 20px rgba(#000, 0.1);
+		img {
+			width: 100%;
+			object-fit: contain;
+			display: block;
+			text-align: center;
+		}
+	}
+	.name {
+		font-size: 18px;
+		font-weight: bold;
+		margin-top: 15px;
+		color: #4b134f;
+	}
+	.email {
+		text-decoration: none;
+		color: #c94b4b;
+		display: inline-block;
+		margin-top: 10px;
+	}
+	&:hover {
+		box-shadow: 0 3px 20px rgba(#000, 0.1);
+		transform: scale(1.02);
+	}
+}
