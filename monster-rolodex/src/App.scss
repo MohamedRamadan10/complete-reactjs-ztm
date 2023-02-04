@@ -9,7 +9,10 @@
 		flex-wrap: wrap;
 		justify-content: center;
 		gap: 15px;
-		margin-top: 50px;
+		margin-top: 100px;
+		@media (max-width: 991px) {
+			margin-top: 50px;
+		}
 		.card {
 			flex: 0 0 calc((100% / 4) - 15px);
 			max-width: calc((100% / 4) - 15px);
